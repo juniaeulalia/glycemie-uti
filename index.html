@@ -348,18 +348,18 @@ function calcAjuste() {
   if (!g||!prev||!atual) return;
   var html = '';
   if (g < 140) { html = hypoHTML(); document.getElementById('res-instavel').innerHTML = html; return; }
-  if (g <= 180) { html = '<div class="res res-ac"><div class="rlbl">Alvo Atingido</div><div class="rval rval-ac">Manter 0,02 UI/kg/h</div><div class="rnote">GC 140–180 mg/dL · Avaliar transição para NPH</div></div>'; document.getElementById('res-instavel').innerHTML = html; return; }
+  if (g <= 180) { html = '<div class="res res-ac"><div class="rlbl">Alvo Atingido</div><div class="rval rval-ac">Manter</div><div class="rnote">GC 140–180 mg/dL · Avaliar transição para NPH</div></div>'; document.getElementById('res-instavel').innerHTML = html; return; }
 
   var rel = g < prev*0.9 ? 'menor' : g > prev*1.1 ? 'maior' : 'igual';
   var tbl = {'181-230':{menor:0,igual:0,maior:1},'231-280':{menor:0,igual:1,maior:2},'281-330':{menor:1,igual:2,maior:4},'>330':{menor:2,igual:'50%',maior:'50%'}};
   var faixa = g<=230?'181-230':g<=280?'231-280':g<=330?'281-330':'>330';
   var delta = tbl[faixa][rel];
   var novaStr, nova;
-  if (delta==='50%') { nova=(atual*1.5).toFixed(1); novaStr=nova+' mL/h (+50%)'; }
+  if (delta==='50%') { nova=(atual*1.5).toFixed(1); novaStr=nova+' mL/h'; }
   else { nova=(atual+delta).toFixed(1); novaStr=delta===0?atual+' mL/h (manter)':nova+' mL/h (+'+delta+' mL/h)'; }
   var relL = {menor:'⬇ Decrescente',igual:'➡ Estável',maior:'⬆ Crescente'};
   html  = '<div class="res res-bl"><div class="rlbl">Tendência</div><div class="rval rval-bl">'+relL[rel]+'</div><div class="rnote">GC '+g+' vs prévia '+prev+' mg/dL</div></div>';
-  html += '<div class="res res-wa"><div class="rlbl">Nova Infusão</div><div class="rval rval-wa">'+novaStr+'</div><div class="rnote">Faixa '+faixa+' · Repetir GC em 1h'+(parseFloat(nova)>atual*1.5?' ⚠ aumento >50%':'')+' </div></div>';
+  html += '<div class="res res-wa"><div class="rlbl">Nova Infusão</div><div class="rval rval-wa">'+novaStr+'</div><div class="rnote">Faixa '+faixa+' · Repetir GC em 1h'+(parseFloat(nova)>atual*1.5?'':'')+' </div></div>';
   document.getElementById('res-instavel').innerHTML = html;
 }
 
