@@ -356,7 +356,7 @@ function calcAjuste() {
   var delta = tbl[faixa][rel];
   var novaStr, nova;
   if (delta==='50%') { nova=(atual*1.5).toFixed(1); novaStr=nova+' mL/h'; }
-  else { nova=(atual+delta).toFixed(1); novaStr=delta===0?atual+' mL/h (manter)':nova+' mL/h (+'+delta+' mL/h)'; }
+  else { nova=(atual+delta).toFixed(1); novaStr=delta===0?atual+' mL/h (manter)':nova+' mL/h'; }
   var relL = {menor:'⬇ Decrescente',igual:'➡ Estável',maior:'⬆ Crescente'};
   html  = '<div class="res res-bl"><div class="rlbl">Tendência</div><div class="rval rval-bl">'+relL[rel]+'</div><div class="rnote">GC '+g+' vs prévia '+prev+' mg/dL</div></div>';
   html += '<div class="res res-wa"><div class="rlbl">Nova Infusão</div><div class="rval rval-wa">'+novaStr+'</div><div class="rnote">Faixa '+faixa+' · Repetir GC em 1h'+(parseFloat(nova)>atual*1.5?'':'')+' </div></div>';
