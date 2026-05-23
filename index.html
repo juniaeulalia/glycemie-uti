@@ -10,9 +10,19 @@
 <meta property="og:url" content="https://juniaeulalia.github.io/glycemie-uti/"/>
 <meta property="og:type" content="website"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<link rel="apple-touch-icon-precomposed" href="icon-180.png"/>
-<link rel="manifest" href="data:application/json,{%22name%22:%22Controle%20Glicemico%20UTI%22,%22short_name%22:%22Glicemia%20UTI%22,%22icons%22:[{%22src%22:%22icon-192.png%22,%22sizes%22:%22192x192%22,%22type%22:%22image/png%22}]}"/>
-<title>Controle Glicemico UTI</title>
+<!-- Favicon -->
+<link rel="icon" href="apple-touch-icon.png"/>
+<!-- iOS : la balise apple-touch-icon-precomposed empêche iOS d'appliquer son effet brillant
+     et son liseré blanc. Les deux balises pointent vers le même fichier déjà bleed-to-edge. -->
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+<link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png"/>
+<!-- PWA meta (mode plein écran après "Ajouter à l'écran d'accueil") -->
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="Glicemia UTI"/>
+<!-- Manifest PWA enrichi : icônes pointent vers apple-touch-icon.png, theme color, background -->
+<link rel="manifest" href='data:application/manifest+json,{"name":"Controle Glicemico UTI","short_name":"Glicemia UTI","start_url":".","display":"standalone","background_color":"%2300c9a7","theme_color":"%2300c9a7","icons":[{"src":"apple-touch-icon.png","sizes":"180x180","type":"image/png","purpose":"any"},{"src":"apple-touch-icon.png","sizes":"180x180","type":"image/png","purpose":"maskable"}]}'/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#0a0f1e;font-family:'Segoe UI',sans-serif;color:#e2e8f0;min-height:100vh;}
